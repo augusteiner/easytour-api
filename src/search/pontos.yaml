@@ -1,0 +1,27 @@
+
+get:
+  tags:
+    - IPontoRepository
+  operationId: "findAll"
+  parameters:
+    - in: query
+      name: termo
+      required: false
+      type: "string"
+    - in: query
+      name: page
+      required: true
+      type: "integer"
+      format: "int64"
+    - in: query
+      name: count
+      required: true
+      type: "integer"
+      format: "int64"
+  responses:
+    "200":
+      schema:
+        type: "array"
+        items:
+          $ref: "./model/ponto.yaml#/Ponto"
+

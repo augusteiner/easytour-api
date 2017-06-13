@@ -13,4 +13,65 @@
     <module>easytour-api</module>
   </modules>
 
+  <build>
+
+    <plugins>
+
+      <plugin>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-codegen-maven-plugin</artifactId>
+        <version>2.2.3-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+
+            <configuration>
+
+              <inputSpec>${session.executionRootDirectory}/src/api.yaml</inputSpec>
+
+              <language>jaxrs-cxf</language>
+
+              <apiPackage>io.easytour.api.spec</apiPackage>
+              <modelPackage>io.easytour.api.spec.model</modelPackage>
+
+              <generateApis>true</generateApis>
+              <generateApiTests>false</generateApiTests>
+
+              <invokerPackage>io.easytour.api.spec.handler</invokerPackage>
+              <!-- <skipOverwrite>true</skipOverwrite> -->
+
+              <output>${basedir}/easytour-api</output>
+
+              <configOptions>
+
+                <useGenericResponse>true</useGenericResponse>
+
+                <groupId>io.easytour.api.spec</groupId>
+                <artifactId>easytour-api-spec</artifactId>
+                <artifactVersion>0.1.0-RELEASE</artifactVersion>
+
+                <supportJava6>true</supportJava6>
+
+                <implFolder>src/gen/java</implFolder>
+
+                <sourceFolder>src/main/java</sourceFolder>
+
+              </configOptions>
+
+            </configuration>
+
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
 </project>

@@ -6,20 +6,19 @@ BIN_DIR=$( cd $( dirname $0 ); pwd )
 
 . ./.bashrc
 
-mvn $_MAVEN_OPTS dependency:copy \
-  -Dartifact=io.swagger:swagger-codegen-cli:$SWAGGER_VERSION \
-  -DoutputDirectory=$BIN_DIR
+# export _MAVEN_OPTS="-q"
 
 rm -rfv easytour-api/
 mkdir -pv easytour-api/
 
-swagger-codegen generate \
-  -i api.yaml \
-  -l jaxrs-cxf \
-  --artifact-id easytour-api-spec \
-  -o easytour-api/
+mvn -N clean package eclipse:eclipse dependency:sources
 
+rm -rfv easytour-api/src/gen
 
-( cd easytour-api/ && mvn $_MAVEN_OPTS clean package eclipse:eclipse dependency:sources )
+# mvn clean package eclipse:eclipse dependency:sources
+mvn jar:jar eclipse:eclipse -pl easytour-api
+
+# mvn shade:shade -pl easytour-api
+
 
 

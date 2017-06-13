@@ -1,0 +1,66 @@
+
+definitions:
+  byId:
+    get:
+      tags:
+        - IPontoRepository
+      operationId: "findById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          schema:
+            $ref: "./model/ponto.yaml#/Ponto"
+    put:
+      tags:
+        - IPontoRepository
+      operationId: "update"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: body
+          name: "ponto"
+          required: true
+          schema:
+            $ref: "./model/ponto.yaml#/Ponto"
+      responses:
+        "204":
+          description: Ponto turístico atualizado com sucesso.
+    delete:
+      tags:
+        - IPontoRepository
+      operationId: "deleteById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "204":
+          description: Ponto turístico removido com sucesso.
+  create:
+    post:
+      tags:
+        - IPontoRepository
+      operationId: "save"
+      parameters:
+        - in: body
+          name: "ponto"
+          required: true
+          schema:
+            $ref: "./model/ponto.yaml#/Ponto"
+      responses:
+        "201":
+          description: Ponto turístico salvo com sucesso.
+          headers:
+            Location:
+              description: asdfasdfsdf
+              type: string
