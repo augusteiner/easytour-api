@@ -1,0 +1,79 @@
+
+definitions:
+  byId:
+    get:
+      tags:
+        - CategoriaRepository
+      operationId: "CategoriaRepository_findById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: categoria
+          schema:
+            $ref: "./model/categoria.yaml#/Categoria"
+        "404":
+          description: categoria não encontrada
+        default:
+          description: erro ocorrido
+    put:
+      tags:
+        - CategoriaRepository
+      operationId: "CategoriaRepository_update"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: body
+          name: "categoria"
+          required: true
+          schema:
+            $ref: "./model/categoria.yaml#/Categoria"
+      responses:
+        "204":
+          description: categoria atualizada
+        default:
+          description: erro ocorrido
+    delete:
+      tags:
+        - CategoriaRepository
+      operationId: "CategoriaRepository_deleteById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "204":
+          description: categoria removida
+        "404":
+          description: categoria não encontrada
+        default:
+          description: erro ocorrido
+  create:
+    post:
+      tags:
+        - CategoriaRepository
+      operationId: "CategoriaRepository_save"
+      parameters:
+        - in: body
+          name: "categoria"
+          required: true
+          schema:
+            $ref: "./model/categoria.yaml#/Categoria"
+      responses:
+        "201":
+          description: categoria criada
+          headers:
+            Location:
+              description: asdfasdfsdf
+              type: string
+        default:
+          description: erro ocorrido

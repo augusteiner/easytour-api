@@ -1,0 +1,77 @@
+
+definitions:
+  byId:
+    get:
+      tags:
+        - RoteiroRepository
+      operationId: "RoteiroRepository_findById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: roteiro turístico
+          schema:
+            $ref: "./model/roteiro.yaml#/Roteiro"
+        "404":
+          description: roteiro turístico não encontrado
+        default:
+          description: erro ocorrido
+    put:
+      tags:
+        - RoteiroRepository
+      operationId: "RoteiroRepository_update"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: body
+          name: "roteiro"
+          required: true
+          schema:
+            $ref: "./model/roteiro.yaml#/Roteiro"
+      responses:
+        "204":
+          description: roteiro turístico atualizado
+        default:
+          description: erro ocorrido
+    delete:
+      tags:
+        - RoteiroRepository
+      operationId: "RoteiroRepository_deleteById"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "204":
+          description: roteiro turístico removido
+        default:
+          description: erro ocorrido
+  create:
+    post:
+      tags:
+        - RoteiroRepository
+      operationId: "RoteiroRepository_save"
+      parameters:
+        - in: body
+          name: "roteiro"
+          required: true
+          schema:
+            $ref: "./model/roteiro.yaml#/Roteiro"
+      responses:
+        "201":
+          description: roteiro turístico criado
+          headers:
+            Location:
+              description: asdfasdfsdf
+              type: string
+        default:
+          description: erro ocorrido

@@ -1,8 +1,8 @@
 
 get:
   tags:
-    - PontoRepository
-  operationId: "PontoRepository_findAll"
+    - RoteiroRepository
+  operationId: "RoteiroRepository_findAll"
   parameters:
     - in: query
       name: termo
@@ -20,11 +20,11 @@ get:
       format: "int64"
   responses:
     "200":
-      description: pontos turísticos encontrados
+      description: roteiros turísticos encontrados
       schema:
         type: "array"
         items:
-          $ref: "./model/ponto.yaml#/Ponto"
+          $ref: "./model/roteiro.yaml#/Roteiro"
     default:
       description: erro ocorrido
 

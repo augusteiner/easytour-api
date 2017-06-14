@@ -3,8 +3,8 @@ definitions:
   byId:
     get:
       tags:
-        - IPontoRepository
-      operationId: "findById"
+        - PontoRepository
+      operationId: "PontoRepository_findById"
       parameters:
         - in: path
           name: id
@@ -13,12 +13,17 @@ definitions:
           format: "int64"
       responses:
         "200":
+          description: ponto turístico
           schema:
             $ref: "./model/ponto.yaml#/Ponto"
+        "404":
+          description: ponto turístico não encontrado
+        default:
+          description: erro ocorrido
     put:
       tags:
-        - IPontoRepository
-      operationId: "update"
+        - PontoRepository
+      operationId: "PontoRepository_update"
       parameters:
         - in: path
           name: id
@@ -32,11 +37,13 @@ definitions:
             $ref: "./model/ponto.yaml#/Ponto"
       responses:
         "204":
-          description: Ponto turístico atualizado com sucesso.
+          description: ponto turístico atualizado
+        default:
+          description: erro ocorrido
     delete:
       tags:
-        - IPontoRepository
-      operationId: "deleteById"
+        - PontoRepository
+      operationId: "PontoRepository_deleteById"
       parameters:
         - in: path
           name: id
@@ -45,12 +52,14 @@ definitions:
           format: "int64"
       responses:
         "204":
-          description: Ponto turístico removido com sucesso.
+          description: ponto turístico removido
+        default:
+          description: erro ocorrido
   create:
     post:
       tags:
-        - IPontoRepository
-      operationId: "save"
+        - PontoRepository
+      operationId: "PontoRepository_save"
       parameters:
         - in: body
           name: "ponto"
@@ -59,8 +68,10 @@ definitions:
             $ref: "./model/ponto.yaml#/Ponto"
       responses:
         "201":
-          description: Ponto turístico salvo com sucesso.
+          description: ponto turístico criado
           headers:
             Location:
               description: asdfasdfsdf
               type: string
+        default:
+          description: erro ocorrido

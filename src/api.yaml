@@ -1,11 +1,35 @@
 
-swagger: '2.0'
+swagger: "2.0"
+
+info:
+  version: "0.1.0-RELEASE"
+  title: "Easy Tour"
+  license:
+    name: MIT
 
 paths:
-  "search/pontos":
+
+  "/search/pontos":
     $ref: "./search/pontos.yaml"
-  "pontos":
-    $ref: "./paths/ponto.yaml#/definitions/create"
-  "pontos/{id}":
-    $ref: "./paths/ponto.yaml#/definitions/byId"
+  "/search/roteiros":
+    $ref: "./search/roteiros.yaml"
+  "/search/categorias":
+    $ref: "./search/categorias.yaml"
+
+  "/pontos":
+    $ref: "./paths/pontos.yaml#/definitions/create"
+  "/pontos/{id}":
+    $ref: "./paths/pontos.yaml#/definitions/byId"
+
+  "/roteiros":
+    $ref: "./paths/roteiros.yaml#/definitions/create"
+  "/roteiros/{id}":
+    $ref: "./paths/roteiros.yaml#/definitions/byId"
+
+  "/categorias":
+    $ref: "./paths/categorias.yaml#/definitions/create"
+  "/categorias/{id}":
+    $ref: "./paths/categorias.yaml#/definitions/byId"
+
+
 
