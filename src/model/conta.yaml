@@ -1,0 +1,14 @@
+
+Conta:
+  properties:
+    email:
+      required: true
+      type: "string"
+    login:
+      required: true
+      type: "string"
+    senha:
+      required: true
+      type: "password"
+
+

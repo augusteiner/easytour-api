@@ -7,29 +7,54 @@ info:
   license:
     name: MIT
 
-paths:
+securityDefinitions:
+  Basic:
+    type: basic
+  Bearer:
+    type: basic
+    name: Authorization
+    in: header
 
+paths:
+  # endpoints para buscas
   "/search/pontos":
     $ref: "./search/pontos.yaml"
   "/search/roteiros":
     $ref: "./search/roteiros.yaml"
   "/search/categorias":
     $ref: "./search/categorias.yaml"
-
+  # endpoints para geração de tokens
+  "/token":
+    $ref: "./paths/tokens.yaml#/definitions/create"
+  # endpoints para gerência de contas
+  # "/contas":
+  #   $ref: "./paths/turistas.yaml#/definitions/create"
+  # "/contas/{id}":
+  #   $ref: "./paths/turistas.yaml#/definitions/byId"
+  # endpoints para gerência de turistas
+  # "/turistas":
+  #   $ref: "./paths/turistas.yaml#/definitions/create"
+  # "/turistas/{id}":
+  #   $ref: "./paths/turistas.yaml#/definitions/byId"
+  # endpoints para gerência de pontos turísticos
   "/pontos":
     $ref: "./paths/pontos.yaml#/definitions/create"
   "/pontos/{id}":
     $ref: "./paths/pontos.yaml#/definitions/byId"
-
+  # endpoints para gerência de categorias de pontos turísticos
+  "/pontos/categorias":
+    $ref: "./paths/categorias.yaml#/definitions/create"
+  "/pontos/categorias/{id}":
+    $ref: "./paths/categorias.yaml#/definitions/byId"
+  # endpoints para gerência de roteiros turísticos
   "/roteiros":
     $ref: "./paths/roteiros.yaml#/definitions/create"
   "/roteiros/{id}":
     $ref: "./paths/roteiros.yaml#/definitions/byId"
-
-  "/categorias":
-    $ref: "./paths/categorias.yaml#/definitions/create"
-  "/categorias/{id}":
-    $ref: "./paths/categorias.yaml#/definitions/byId"
-
+  # endpoints para gerência de categorias de roteiros turísticos
+  # "/roteiros/categorias":
+  #   $ref: "./paths/categorias.yaml#/definitions/create"
+  # "/roteiros/categorias/{id}":
+  #   $ref: "./paths/categorias.yaml#/definitions/byId"
 
 
