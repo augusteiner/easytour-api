@@ -1,0 +1,44 @@
+
+Usuario:
+  properties:
+    id:
+      required: true
+      type: integer
+      format: int64
+    nome:
+      required: true
+      type: integer
+      format: int64
+
+    email:
+      required: true
+      type: string
+
+    login:
+      required: true
+      type: string
+    senha:
+      required: true
+      type: string
+      format: password
+
+    habilitado:
+      required: false
+      type: boolean
+
+    tipo:
+      readOnly: true
+      type: string
+
+    emailVerificadoEm:
+      type: string
+      format: date-time
+
+    criadoEm:
+      type: string
+      format: date-time
+    atualizadoEm:
+      type: string
+      format: date-time
+
+
