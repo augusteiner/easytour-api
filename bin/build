@@ -11,12 +11,18 @@ BIN_DIR=$( cd $( dirname $0 ); pwd )
 rm -rfv easytour-api/
 mkdir -pv easytour-api/
 
-mvn -N clean package eclipse:eclipse dependency:sources
+mvn -N clean package
 
 rm -rfv easytour-api/src/gen
 
-# mvn clean package eclipse:eclipse dependency:sources
-mvn jar:jar eclipse:eclipse -pl easytour-api
+mvn -DskipTests compile source:jar jar:jar install -pl easytour-api
+
+mvn install:install-file -pl easytour-api \
+  -DgroupId=io.easytour.api.spec \
+  -DartifactId=easytour-api-spec \
+  -Dversion=0.1.0-RELEASE \
+  -Dpackaging=jar \
+  -Dfile=target/easytour-api-spec-0.1.0-RELEASE.jar
 
 # mvn shade:shade -pl easytour-api
 
