@@ -1,8 +1,8 @@
 
 get:
   tags:
-    - Ponto
-  operationId: Ponto_findAll
+    - CategoriaRoteiro
+  operationId: CategoriaRoteiro_findAll
   parameters:
     - in: query
       name: termo
@@ -15,12 +15,11 @@ get:
       type: integer
   responses:
     200:
-      description: pontos turísticos encontrados
+      description: categorias encontradas
       schema:
         type: array
         items:
-          $ref: './model/ponto.yaml#/Ponto'
+          $ref: './model/categoria.yaml#/Categoria'
     default:
       description: erro ocorrido
-
 

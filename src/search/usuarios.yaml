@@ -1,0 +1,41 @@
+
+definitions:
+
+  byLogin:
+    get:
+      tags:
+        - Usuario
+      operationId: Usuario_findByLogin
+      parameters:
+        - in: path
+          name: login
+          type: string
+          required: true
+      responses:
+        200:
+          description: usuário encontrado
+          $ref: './model/usuario.yaml#/Usuario'
+        404:
+          description: usuário não encontrado
+        default:
+          description: erro ao buscar
+
+  byEmail:
+    get:
+      tags:
+        - Usuario
+      operationId: Usuario_findByEmail
+      parameters:
+        - in: path
+          name: email
+          type: string
+      responses:
+        200:
+          description: usuário encontrado
+          $ref: './model/usuario.yaml#/Usuario'
+        404:
+          description: usuário não encontrado
+        default:
+          description: erro ao buscar
+
+

@@ -1,73 +1,79 @@
 
 definitions:
+
   byId:
+
     get:
       tags:
-        - PontoRepository
-      operationId: "PontoRepository_findById"
+        - Ponto
+      operationId: Ponto_findById
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
       responses:
-        "200":
+        200:
           description: ponto turístico
           schema:
-            $ref: "./model/ponto.yaml#/Ponto"
-        "404":
+            $ref: './model/ponto.yaml#/Ponto'
+        404:
           description: ponto turístico não encontrado
         default:
           description: erro ocorrido
+
     put:
       tags:
-        - PontoRepository
-      operationId: "PontoRepository_update"
+        - Ponto
+      operationId: Ponto_update
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
         - in: body
-          name: "ponto"
+          name: ponto
           required: true
           schema:
-            $ref: "./model/ponto.yaml#/Ponto"
+            $ref: './model/ponto.yaml#/Ponto'
       responses:
-        "204":
+        204:
           description: ponto turístico atualizado
         default:
           description: erro ocorrido
+
     delete:
       tags:
-        - PontoRepository
-      operationId: "PontoRepository_deleteById"
+        - Ponto
+      operationId: Ponto_deleteById
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
       responses:
-        "204":
+        204:
           description: ponto turístico removido
         default:
           description: erro ocorrido
+
   create:
+
     post:
       tags:
-        - PontoRepository
-      operationId: "PontoRepository_save"
+        - Ponto
+      operationId: Ponto_save
       parameters:
         - in: body
-          name: "ponto"
+          name: ponto
           required: true
           schema:
-            $ref: "./model/ponto.yaml#/Ponto"
+            $ref: './model/ponto.yaml#/Ponto'
       responses:
-        "201":
+        201:
           description: ponto turístico criado
           headers:
             Location:
@@ -75,3 +81,5 @@ definitions:
               type: string
         default:
           description: erro ocorrido
+
+

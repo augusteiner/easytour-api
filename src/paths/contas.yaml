@@ -1,18 +1,20 @@
 
 definitions:
+
   create:
+
     post:
       tags:
-        - ContaRepository
-      operationId: "ContaRepository_criar"
+        - Conta
+      operationId: 'Conta_criar'
       parameters:
         - in: body
-          name: "conta"
+          name: 'conta'
           required: true
           schema:
-            $ref: "./model/conta.yaml#/Conta"
+            $ref: './model/conta.yaml#/Conta'
       responses:
-        "204":
+        '204':
           description: conta criada
         default:
           description: erro ocorrido

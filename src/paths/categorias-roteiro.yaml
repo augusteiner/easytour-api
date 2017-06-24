@@ -1,75 +1,84 @@
 
 definitions:
+
+  Categoria:
+    $ref: ./model/categoria.yaml#/Categoria
+
   byId:
+
     get:
       tags:
-        - CategoriaRepository
-      operationId: "CategoriaRepository_findById"
+        - CategoriaRoteiro
+      operationId: CategoriaRoteiro_findById
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
       responses:
-        "200":
+        200:
           description: categoria
           schema:
-            $ref: "./model/categoria.yaml#/Categoria"
-        "404":
+            $ref: '#/definitions/Categoria'
+        404:
           description: categoria não encontrada
         default:
           description: erro ocorrido
+
     put:
       tags:
-        - CategoriaRepository
-      operationId: "CategoriaRepository_update"
+        - CategoriaRoteiro
+      operationId: CategoriaRoteiro_update
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
         - in: body
-          name: "categoria"
+          name: categoria
           required: true
           schema:
-            $ref: "./model/categoria.yaml#/Categoria"
+            $ref: '#/definitions/Categoria'
       responses:
-        "204":
+        204:
           description: categoria atualizada
         default:
           description: erro ocorrido
+
     delete:
       tags:
-        - CategoriaRepository
-      operationId: "CategoriaRepository_deleteById"
+        - CategoriaRoteiro
+      operationId: CategoriaRoteiro_deleteById
       parameters:
         - in: path
           name: id
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
       responses:
-        "204":
+        204:
           description: categoria removida
-        "404":
+        404:
           description: categoria não encontrada
         default:
           description: erro ocorrido
+
   create:
+
     post:
       tags:
-        - CategoriaRepository
-      operationId: "CategoriaRepository_save"
+        - CategoriaRoteiro
+      operationId: CategoriaRoteiro_save
       parameters:
         - in: body
-          name: "categoria"
+          name: categoria
           required: true
           schema:
-            $ref: "./model/categoria.yaml#/Categoria"
+            $ref: '#/definitions/Categoria'
       responses:
-        "201":
+        201:
           description: categoria criada
           headers:
             Location:
@@ -77,3 +86,5 @@ definitions:
               type: string
         default:
           description: erro ocorrido
+
+

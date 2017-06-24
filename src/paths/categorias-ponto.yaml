@@ -1,12 +1,15 @@
 
 definitions:
 
+  Categoria:
+    $ref: ./model/categoria.yaml#/Categoria
+
   byId:
 
     get:
       tags:
-        - Roteiro
-      operationId: Roteiro_findById
+        - CategoriaPonto
+      operationId: CategoriaPonto_findById
       parameters:
         - in: path
           name: id
@@ -15,18 +18,18 @@ definitions:
           format: int64
       responses:
         200:
-          description: roteiro turístico
+          description: categoria
           schema:
-            $ref: './model/roteiro.yaml#/Roteiro'
+            $ref: '#/definitions/Categoria'
         404:
-          description: roteiro turístico não encontrado
+          description: categoria não encontrada
         default:
           description: erro ocorrido
 
     put:
       tags:
-        - Roteiro
-      operationId: Roteiro_update
+        - CategoriaPonto
+      operationId: CategoriaPonto_update
       parameters:
         - in: path
           name: id
@@ -34,20 +37,20 @@ definitions:
           type: integer
           format: int64
         - in: body
-          name: roteiro
+          name: categoria
           required: true
           schema:
-            $ref: './model/roteiro.yaml#/Roteiro'
+            $ref: '#/definitions/Categoria'
       responses:
         204:
-          description: roteiro turístico atualizado
+          description: categoria atualizada
         default:
           description: erro ocorrido
 
     delete:
       tags:
-        - Roteiro
-      operationId: Roteiro_deleteById
+        - CategoriaPonto
+      operationId: CategoriaPonto_deleteById
       parameters:
         - in: path
           name: id
@@ -56,7 +59,9 @@ definitions:
           format: int64
       responses:
         204:
-          description: roteiro turístico removido
+          description: categoria removida
+        404:
+          description: categoria não encontrada
         default:
           description: erro ocorrido
 
@@ -64,17 +69,17 @@ definitions:
 
     post:
       tags:
-        - Roteiro
-      operationId: Roteiro_save
+        - CategoriaPonto
+      operationId: CategoriaPonto_save
       parameters:
         - in: body
-          name: roteiro
+          name: categoria
           required: true
           schema:
-            $ref: './model/roteiro.yaml#/Roteiro'
+            $ref: '#/definitions/Categoria'
       responses:
         201:
-          description: roteiro turístico criado
+          description: categoria criada
           headers:
             Location:
               description: asdfasdfsdf

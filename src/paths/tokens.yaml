@@ -1,37 +1,38 @@
 
 definitions:
 
+  Token:
+    properties:
+      token:
+        readOnly: true
+        type: string
+
   create:
+
     get:
       tags:
-        - TokenRepository
-      operationId: "TokenRepository_criar"
+        - Token
+      operationId: Token_criar
       security:
         - Basic: []
       parameters:
         - in: header
           description: blablabla
-          name: "Authorization"
+          name: Authorization
           type: string
           format: byte
           required: true
       responses:
-        "200":
+        200:
           description: token gerado
           schema:
-            $ref: "#/definitions/Token"
-        "401":
+            $ref: '#/definitions/Token'
+        401:
           description: Authentication information is missing or invalid
           headers:
             WWW_Authenticate:
               type: string
         default:
           description: erro ocorrido
-
-  Token:
-    properties:
-      token:
-        readOnly: true
-        type: "string"
 
 
