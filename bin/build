@@ -8,12 +8,15 @@ BIN_DIR=$( cd $( dirname $0 ); pwd )
 
 # export _MAVEN_OPTS="-q"
 
-rm -rfv easytour-api/
+rm -rfv easytour-api/src
+rm -rfv easytour-api/gen
+rm -rfv easytour-api/target
+
 mkdir -pv easytour-api/
 
 mvn -N clean package
 
-rm -rfv easytour-api/src/gen
+# rm -rfv easytour-api/src/gen
 
 mvn -DskipTests compile source:jar jar:jar install -pl easytour-api
 

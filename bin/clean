@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 
-rm -rfv easytour-api/
-rm -rfv easytour-api-docs/
+rm -rfv easytour-api/src
+rm -rfv easytour-api/gen
+rm -rfv easytour-api/target
+
+# rm -rfv easytour-api-docs/
 
 

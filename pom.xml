@@ -33,23 +33,28 @@
 
             <configuration>
 
-              <inputSpec>${session.executionRootDirectory}/src/api.yaml</inputSpec>
+              <inputSpec>http://localhost:9090/swagger.json</inputSpec>
 
               <language>jaxrs-cxf</language>
 
+              <modelPackage>io.easytour.api.model</modelPackage>
+              <generateModels>false</generateModels>
+
+              <!--
               <apiPackage>io.easytour.api.spec</apiPackage>
-              <modelPackage>io.easytour.api.spec.model</modelPackage>
 
               <generateApis>true</generateApis>
               <generateApiTests>false</generateApiTests>
 
               <invokerPackage>io.easytour.api.spec.handler</invokerPackage>
-              <!-- <skipOverwrite>true</skipOverwrite> -->
 
               <removeOperationIdPrefix>true</removeOperationIdPrefix>
 
+              -->
+
               <output>${basedir}/easytour-api</output>
 
+              <!--
               <configOptions>
 
                 <useGenericResponse>true</useGenericResponse>
@@ -65,56 +70,14 @@
                 <sourceFolder>src/main/java</sourceFolder>
 
               </configOptions>
+              -->
 
             </configuration>
 
           </execution>
-          <execution>
-            <id>generate-html-docs</id>
 
-            <goals>
-              <goal>generate</goal>
-            </goals>
-
-            <configuration>
-
-              <inputSpec>${session.executionRootDirectory}/src/api.yaml</inputSpec>
-
-              <language>swagger</language>
-
-              <apiPackage>io.easytour.api.spec</apiPackage>
-              <modelPackage>io.easytour.api.spec.model</modelPackage>
-
-              <generateApis>true</generateApis>
-              <generateApiTests>false</generateApiTests>
-
-              <invokerPackage>io.easytour.api.spec.handler</invokerPackage>
-              <!-- <skipOverwrite>true</skipOverwrite> -->
-
-              <!-- <removeOperationIdPrefix>true</removeOperationIdPrefix> -->
-
-              <output>${basedir}/easytour-api-docs</output>
-
-              <!--<configOptions>
-
-                <useGenericResponse>true</useGenericResponse>
-
-                <groupId>io.easytour.api.spec</groupId>
-                <artifactId>easytour-api-spec</artifactId>
-                <artifactVersion>0.1.0-RELEASE</artifactVersion>
-
-                <supportJava6>true</supportJava6>
-
-                <implFolder>src/gen/java</implFolder>
-
-                <sourceFolder>src/main/java</sourceFolder>
-
-              </configOptions>-->
-
-            </configuration>
-
-          </execution>
         </executions>
+
       </plugin>
 
     </plugins>
