@@ -9,10 +9,6 @@
 
   <packaging>pom</packaging>
 
-  <modules>
-    <module>easytour-api</module>
-  </modules>
-
   <build>
 
     <plugins>
@@ -33,44 +29,46 @@
 
             <configuration>
 
-              <inputSpec>http://localhost:9090/swagger.json</inputSpec>
+              <inputSpec>http://easytour-api.herokuapp.com/swagger.json</inputSpec>
 
-              <language>jaxrs-cxf</language>
+              <language>java</language>
+              <library>okhttp-gson</library>
 
               <modelPackage>io.easytour.api.model</modelPackage>
-              <generateModels>false</generateModels>
+              <!-- <generateModels>false</generateModels> -->
+
+              <apiPackage>io.easytour.api</apiPackage>
 
               <!--
-              <apiPackage>io.easytour.api.spec</apiPackage>
-
               <generateApis>true</generateApis>
               <generateApiTests>false</generateApiTests>
 
               <invokerPackage>io.easytour.api.spec.handler</invokerPackage>
 
               <removeOperationIdPrefix>true</removeOperationIdPrefix>
-
               -->
 
-              <output>${basedir}/easytour-api</output>
+              <output>${basedir}/easytour-android-client</output>
 
-              <!--
               <configOptions>
 
+                <!--
                 <useGenericResponse>true</useGenericResponse>
+                -->
 
-                <groupId>io.easytour.api.spec</groupId>
-                <artifactId>easytour-api-spec</artifactId>
+                <groupId>io.easytour.android.client</groupId>
+                <artifactId>easytour-android-client</artifactId>
                 <artifactVersion>0.1.0-RELEASE</artifactVersion>
 
+                <!--
                 <supportJava6>true</supportJava6>
 
                 <implFolder>src/gen/java</implFolder>
 
                 <sourceFolder>src/main/java</sourceFolder>
+                -->
 
               </configOptions>
-              -->
 
             </configuration>
 

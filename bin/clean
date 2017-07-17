@@ -1,9 +1,7 @@
 #!/usr/bin/env sh
 
-rm -rfv easytour-api/src
-rm -rfv easytour-api/gen
-rm -rfv easytour-api/target
-
-# rm -rfv easytour-api-docs/
+rm -rfv easytour-android-client/src
+rm -rfv easytour-android-client/gen
+rm -rfv easytour-android-client/target
 
 

@@ -8,26 +8,14 @@ BIN_DIR=$( cd $( dirname $0 ); pwd )
 
 # export _MAVEN_OPTS="-q"
 
-rm -rfv easytour-api/src
-rm -rfv easytour-api/gen
-rm -rfv easytour-api/target
+rm -rfv easytour-android-client/src
+rm -rfv easytour-android-client/gen
+rm -rfv easytour-android-client/target
 
-mkdir -pv easytour-api/
+mkdir -pv easytour-android-client/
 
 mvn -N clean package
 
-# rm -rfv easytour-api/src/gen
+cd easytour-android-client/
 
-mvn -DskipTests compile source:jar jar:jar install -pl easytour-api
-
-mvn install:install-file -pl easytour-api \
-  -DgroupId=io.easytour.api.spec \
-  -DartifactId=easytour-api-spec \
-  -Dversion=0.1.0-RELEASE \
-  -Dpackaging=jar \
-  -Dfile=target/easytour-api-spec-0.1.0-RELEASE.jar
-
-# mvn shade:shade -pl easytour-api
-
-
-
+gradle install
